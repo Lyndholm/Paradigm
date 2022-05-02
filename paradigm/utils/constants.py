@@ -23,7 +23,11 @@ SPRAYS_PATH = 'FortniteGame/Content/Athena/Items/Cosmetics/Sprays/'
 
 MUSIC_PACKS_PATH = 'FortniteGame/Content/Athena/Items/Cosmetics/MusicPacks/'
 
-LAODING_SCREENS_PATH = 'FortniteGame/Content/Athena/Items/Cosmetics/Loadingscreens/'
+LOADING_SCREENS_PATH = 'FortniteGame/Content/Athena/Items/Cosmetics/Loadingscreens/'
+
+BANNERS_PATH = 'FortniteGame/Content/Items/BannerIcons/'
+
+TOYS_PATH = 'FortniteGame/Content/Athena/Items/Cosmetics/Toys/'
 
 
 # Textures
@@ -53,6 +57,12 @@ SPRAYS_TEXTURES_PATH = 'FortniteGame/Content/2dAssets/Sprays/Season20/PreviewIma
 
 MUSIC_PACKS_TEXTURES_PATH = 'FortniteGame/Content/2dAssets/Music/Season20/PreviewImages/'
 
-LAODING_SCREENS_TEXTURES_PATH = 'FortniteGame/Content/2dAssets/Loadingscreens/Season20/PreviewImages/'
+LOADING_SCREENS_TEXTURES_PATH = 'FortniteGame/Content/2dAssets/Loadingscreens/Season20/PreviewImages/'
 
+BANNERS_TEXTURES_PATH = 'FortniteGame/Content/2dAssets/Banners/Season20/'
+
+TOYS_TEXTURES_PATH = 'FortniteGame/Content/2dAssets/Toys/Season20/'
+
+
+# Gameplay items
 GAMEPLAY_FEATURES_ITEMS = 'FortniteGame/Plugins/GameFeatures/ResolveGameplay/Content/Icons/'
