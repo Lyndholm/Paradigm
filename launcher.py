@@ -1,8 +1,10 @@
 from paradigm.bot import Paradigm
 
+bot = Paradigm()
+
 
 def main() -> None:
-    bot = Paradigm()
+    ...
 
 
 if __name__ == '__main__':
