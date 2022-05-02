@@ -191,10 +191,11 @@ class BaseIcon:
         self.draw_asset_description(canvas, draw)
         self.draw_tags_and_flags(canvas, draw)
 
+        path = self.asset.path.split('/')[-1].removesuffix('.uasset')
         try:
-            canvas.save(f'paradigm/cache/{self.asset.__class__.__name__}/{self.asset.path}.png')
+            canvas.save(f'paradigm/cache/{self.asset.__class__.__name__}/{path}.png')
         except FileNotFoundError:
             os.mkdir(f'paradigm/cache/{self.asset.__class__.__name__}/')
-            canvas.save(f'paradigm/cache/{self.asset.__class__.__name__}/{self.asset.path}.png')
+            canvas.save(f'paradigm/cache/{self.asset.__class__.__name__}/{path}.png')
 
         return canvas

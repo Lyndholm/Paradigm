@@ -17,6 +17,8 @@ ITEM_WRAPS_PATH = 'FortniteGame/Content/Athena/Items/Cosmetics/ItemWraps/'
 
 PETS_PATH = 'FortniteGame/Content/Athena/Items/Cosmetics/PetCarriers/'
 
+STYLES_PATH = 'FortniteGame/Content/Athena/Items/CosmeticVariantTokens/'
+
 EMOJIS_PATH = 'FortniteGame/Content/Athena/Items/Cosmetics/Dances/Emoji/'
 
 SPRAYS_PATH = 'FortniteGame/Content/Athena/Items/Cosmetics/Sprays/'
@@ -50,6 +52,8 @@ EMOTES_TEXTURES_PATH = 'FortniteGame/Content/UI/Foundation/Textures/Icons/Emotes
 ITEM_WRAPS_TEXTURES_PATH = 'FortniteGame/Content/UI/Foundation/Textures/Icons/Wraps/WeaponRenders/StaticRenders/'
 
 PETS_TEXTURES_PATH = 'FortniteGame/Content/UI/Foundation/Textures/Icons/Pets/'
+
+STYLES_TEXTURES_PATH = 'FortniteGame/Content/UI/Foundation/Textures/Icons/Heroes/Variants/'
 
 EMOJIS_TEXTURES_PATH = 'FortniteGame/Content/2dAssets/Emoji/Season20/'
 

@@ -35,6 +35,10 @@ class FortPetCarrier(FortBaseCosmetic):
     ...
 
 
+class FortVariantStyle(FortBaseCosmetic):
+    ...
+
+
 class FortEmoji(FortBaseCosmetic):
     ...
 

@@ -21,6 +21,8 @@ def define_asset_type(export_type: str):
             return models.FortPetCarrier
         case 'AthenaEmojiItemDefinition':
             return models.FortEmoji
+        case 'FortVariantTokenType':
+            return models.FortVariantStyle
         case 'AthenaSprayItemDefinition':
             return models.FortSpray
         case 'AthenaMusicPackItemDefinition':
