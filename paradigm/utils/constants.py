@@ -66,3 +66,7 @@ TOYS_TEXTURES_PATH = 'FortniteGame/Content/2dAssets/Toys/Season20/'
 
 # Gameplay items
 GAMEPLAY_FEATURES_ITEMS = 'FortniteGame/Plugins/GameFeatures/ResolveGameplay/Content/Icons/'
+
+
+# Paths
+IMAGE_ASSETS_PATH = 'paradigm/assets/images/'

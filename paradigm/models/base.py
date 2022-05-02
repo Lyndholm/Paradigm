@@ -39,10 +39,15 @@ class FortBaseCosmetic(BaseModel):
     short_description: ShortDescription = Field(alias='ShortDescription')
     rarity: Optional[str] = Field(default='EFortRarity::Common', alias='Rarity')
     series: Optional[str] = Field(alias='Series')
-    gameplay_tags: Optional[list] = Field(alias='GameplayTags', default=[])
+    fmodel_path: Optional[str]
+    gameplay_tags: Optional[list[str]] = Field(alias='GameplayTags', default=[])
     preview_image: Optional[DisplayAssetPath] = Field(alias='LargePreviewImage')
     display_asset: Optional[DisplayAssetPath] = Field(alias='DisplayAssetPath')
 
     @property
     def image(self):
         return self.preview_image or self.display_asset
+
+    @property
+    def path(self):
+        return self.fmodel_path or self.name.text.replace(' ', '')

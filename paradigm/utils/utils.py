@@ -33,3 +33,27 @@ def define_asset_type(export_type: str):
             return models.FortToy
         case _:
             raise TypeError(f'Undefined type: {export_type}')
+
+
+def change_rarity_based_on_series(asset: models.FortBaseCosmetic) -> None:
+    match asset.series:
+        case 'ColumbusSeries':
+            asset.rarity = 'StarWars'
+        case 'CreatorCollabSeries':
+            asset.rarity = 'Icon'
+        case 'CUBESeries':
+            asset.rarity = 'Dark'
+        case 'DCUSeries':
+            asset.rarity = 'DC'
+        case 'FrozenSeries':
+            asset.rarity = 'Frozen'
+        case 'LavaSeries':
+            asset.rarity = 'Lava'
+        case 'MarvelSeries':
+            asset.rarity = 'Marvel'
+        case 'PlatformSeries':
+            asset.rarity = 'GamingLegends'
+        case 'ShadowSeries':
+            asset.rarity = 'Shadow'
+        case 'SlurpSeries':
+            asset.rarity = 'Slurp'
