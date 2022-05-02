@@ -34,9 +34,9 @@ class ShortDescription(FortItemText):
 
 class FortBaseCosmetic(BaseModel):
     item_type: str = Field(alias='exportType')
-    name: DisplayName = Field(alias='DisplayName')
-    description: Description = Field(alias='Description')
-    short_description: ShortDescription = Field(alias='ShortDescription')
+    name: Optional[DisplayName] = Field(alias='DisplayName')
+    description: Optional[Description] = Field(alias='Description')
+    short_description: Optional[ShortDescription] = Field(alias='ShortDescription')
     rarity: Optional[str] = Field(default='EFortRarity::Common', alias='Rarity')
     series: Optional[str] = Field(alias='Series')
     fmodel_path: Optional[str]

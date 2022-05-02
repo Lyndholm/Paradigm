@@ -1,5 +1,4 @@
 import os
-from datetime import datetime
 
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
@@ -78,10 +77,11 @@ class BaseIcon:
 
     def draw_asset_name(self, canvas: Image.Image, draw: ImageDraw.Draw):
         text_size = 32
-        text = self.asset.name.text.upper()
+        text = getattr(self.asset.name, 'text', None)
         if not text:
             return
 
+        text = text.upper()
         font = open_font(font=self.primary_font, size=text_size)
         text_width, text_height = font.getsize(text)
         x = (512 - text_width) / 2
@@ -107,10 +107,11 @@ class BaseIcon:
 
     def draw_asset_description(self, canvas: Image.Image, draw: ImageDraw.Draw):
         text_size = 14
-        text = self.asset.description.text.upper()[:100] # draw the first 100 characters
+        text = getattr(self.asset.description, 'text')
         if not text:
             return
 
+        text = text.upper()[:100] # draw the first 100 characters
         font = open_font(font=self.secondary_font, size=text_size)
         text_width, text_height = font.getsize(text)
         x = (512 - text_width) / 2
@@ -132,9 +133,6 @@ class BaseIcon:
 
 
     def draw_asset_tags(self, canvas: Image.Image, draw: ImageDraw.Draw, text: str):
-        if not self.asset.name.text or not self.asset.description.text:
-            return
-
         text_size = 17
         font = open_font(font='BurbankBigRegular-Black.ttf', size=text_size)
 

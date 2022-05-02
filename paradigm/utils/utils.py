@@ -31,6 +31,8 @@ def define_asset_type(export_type: str):
             return models.FortLoadingScreen
         case 'FortBannerTokenType':
             return models.FortBanner
+        case 'FortHomebaseBannerIconItemDefinition':
+            return models.FortBanner
         case 'AthenaToyItemDefinition':
             return models.FortToy
         case _:
