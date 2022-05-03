@@ -33,6 +33,9 @@ TOYS_PATH = 'FortniteGame/Content/Athena/Items/Cosmetics/Toys/'
 
 
 # Textures
+
+OUTFITS_ICONS_PATH = 'FortniteGame/Content/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/'
+
 OUTFITS_TEXTURES_PATH = 'FortniteGame/Content/UI/Foundation/Textures/BattleRoyale/FeaturedItems/Outfit/T-AthenaSoldiers'
 
 BUNDLES_TEXTURES_PATH = 'FortniteGame/Content/UI/Foundation/Textures/BattleRoyale/FeaturedItems/Outfit/T-AthenaBundles'

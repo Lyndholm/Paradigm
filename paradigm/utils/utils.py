@@ -1,4 +1,4 @@
-from paradigm import models
+import models
 
 
 def define_asset_type(export_type: str):

@@ -2,9 +2,9 @@ import os
 
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
-from .models import FortBaseCosmetic, FortCharacter
-from .utils import OUTFITS_TEXTURES_PATH, IMAGE_ASSETS_PATH
-from .utils import (change_rarity_based_on_series,
+from models import FortBaseCosmetic, FortCharacter
+from utils import OUTFITS_ICONS_PATH, IMAGE_ASSETS_PATH
+from utils import (change_rarity_based_on_series,
                     download_image, open_font, ratio_resize)
 
 
@@ -59,11 +59,10 @@ class BaseIcon:
         image = getattr(self.asset.image, 'path', None)
 
         if not image:
-            try:
-                if self.asset.__class__ is FortCharacter:
-                    path = OUTFITS_TEXTURES_PATH + '-' + self.asset.definition_path.replace('_', '-').replace('HID', 'CID')
-                    image = download_image(f'https://benbot.app/api/v1/exportAsset?path={path}')
-            except:
+            if self.asset.__class__ is FortCharacter:
+                path = OUTFITS_ICONS_PATH + 'T-Soldier-' + self.asset.definition_path.replace('_', '-') + '-L.uasset'
+                image = download_image(f'https://benbot.app/api/v1/exportAsset?path={path}')
+            else:
                 image = Image.open(f'{IMAGE_ASSETS_PATH}export_error.png')
         else:
             image = download_image(f'https://benbot.app/api/v1/exportAsset?path={image}')
@@ -77,11 +76,13 @@ class BaseIcon:
 
     def draw_asset_name(self, canvas: Image.Image, draw: ImageDraw.Draw):
         text_size = 32
-        text = getattr(self.asset.name, 'text', None)
-        if not text:
-            return
+        text = getattr(self.asset, 'name', None)
 
-        text = text.upper()
+        if text:
+            text = text.text.upper()
+        else:
+            text = 'null'
+
         font = open_font(font=self.primary_font, size=text_size)
         text_width, text_height = font.getsize(text)
         x = (512 - text_width) / 2
@@ -107,11 +108,13 @@ class BaseIcon:
 
     def draw_asset_description(self, canvas: Image.Image, draw: ImageDraw.Draw):
         text_size = 14
-        text = getattr(self.asset.description, 'text')
-        if not text:
-            return
+        text = getattr(self.asset, 'description', None)
 
-        text = text.upper()[:100] # draw the first 100 characters
+        if text:
+            text = text.text.upper()[:100] # draw the first 100 characters
+        else:
+            text = 'null'
+        
         font = open_font(font=self.secondary_font, size=text_size)
         text_width, text_height = font.getsize(text)
         x = (512 - text_width) / 2
