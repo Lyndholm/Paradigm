@@ -194,9 +194,9 @@ class BaseIcon:
 
         path = self.asset.path.split('/')[-1].removesuffix('.uasset')
         try:
-            canvas.save(f'paradigm/cache/{self.asset.__class__.__name__}/{path}.png')
+            canvas.save(f'paradigm/cache/{path}.png')
         except FileNotFoundError:
-            os.mkdir(f'paradigm/cache/{self.asset.__class__.__name__}/')
-            canvas.save(f'paradigm/cache/{self.asset.__class__.__name__}/{path}.png')
+            os.mkdir(f'paradigm/cache/')
+            canvas.save(f'paradigm/cache/{path}.png')
 
         return canvas

@@ -52,3 +52,5 @@ class Paradigm:
             icon.generate_icon()
             self.logger.info(f'Generated: {asset}')
             time.sleep(3) # sleep for 3 seconds, we don't want to spam the api
+
+        utils.merge_images()
