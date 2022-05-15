@@ -29,6 +29,8 @@ def main() -> None:
     for path in paths_to_parse:
         bot.generate_asset_icons(assets, path)
 
+    bot.merge_icons()
+
 
 if __name__ == '__main__':
     main()

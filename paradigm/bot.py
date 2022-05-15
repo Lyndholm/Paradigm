@@ -13,6 +13,7 @@ class Paradigm:
     def __init__(self) -> None:
         self.sesion = requests.Session()
         self.logger = utils.logger.setup_logger(__class__.__name__)
+        self.assets_icons = []
 
 
     def get_added_files(self) -> Optional[dict[str, Any]]:
@@ -39,18 +40,29 @@ class Paradigm:
 
 
     def generate_asset_icons(self, assets_list: list, asset_path_pattern: str) -> None:
-        assets = list(
+        icons = []
+        assets_paths = list(
             filter(
                 lambda asset: asset.startswith(asset_path_pattern),
                 assets_list
             )
         )
-        for asset in assets:
-            properties = self.get_asset_properties(asset)
-            item = utils.define_asset_type(properties['exportType'])
-            icon = creator.BaseIcon(item(**properties, fmodel_path=asset))
-            icon.generate_icon()
-            self.logger.info(f'Generated: {asset}')
+
+        for path in assets_paths:
+            properties = self.get_asset_properties(path)
+            AssetType = utils.define_asset_type(properties['exportType'])
+            asset = AssetType(**properties, fmodel_path=path)      
+
+            icon = creator.BaseIcon(asset).generate_icon()
+            icon.asset = asset
+            icons.append(icon)
+            self.logger.info(f'Generated: {asset.fmodel_path}')
             time.sleep(3) # sleep for 3 seconds, we don't want to spam the api
 
-        utils.merge_images()
+        self.assets_icons.extend(icons)
+
+
+    def merge_icons(self) -> None:
+        self.assets_icons.sort(key = lambda icon: icon.asset.sorting_priority)
+        utils.merge_images(self.assets_icons, filename='newcosmetics')
+        utils.clear_cache()

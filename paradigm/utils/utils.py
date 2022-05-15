@@ -1,3 +1,6 @@
+import os
+import shutil
+
 import models
 
 
@@ -61,3 +64,13 @@ def change_rarity_based_on_series(asset: models.FortBaseCosmetic) -> None:
             asset.rarity = 'Shadow'
         case 'SlurpSeries':
             asset.rarity = 'Slurp'
+
+
+def clear_cache() -> None:
+    """Clear cache folder"""
+
+    try:
+        shutil.rmtree('paradigm/cache')
+        os.makedirs('paradigm/cache')
+    except:
+        os.makedirs('paradigm/cache')
