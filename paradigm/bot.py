@@ -1,5 +1,5 @@
 import time
-from typing import Any, Optional
+from typing import Any
 
 import requests
 
@@ -16,7 +16,7 @@ class Paradigm:
         self.assets_icons = []
 
 
-    def get_added_files(self) -> Optional[dict[str, Any]]:
+    def get_added_files(self) -> dict[str, Any] | None:
         r = self.sesion.get(f'{self.BASE}files/added')
         if r.status_code != 200:
             return
@@ -24,7 +24,7 @@ class Paradigm:
         return r.json()
 
 
-    def get_asset_properties(self, asset: str) -> Optional[dict[str, Any]]:
+    def get_asset_properties(self, asset: str) -> dict[str, Any] | None:
         r = self.sesion.get(
             f'{self.BASE}assetProperties',
             params={

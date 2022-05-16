@@ -1,6 +1,5 @@
 import math
 import os
-from typing import Optional
 
 import requests
 from PIL import Image, ImageFont
@@ -31,7 +30,7 @@ def ratio_resize(image: Image.Image, max_width: int, max_height: int) -> Image.I
 def open_font(
     size: int,
     font: str,
-    directory: Optional[str] = 'paradigm/assets/fonts/',
+    directory: str | None = 'paradigm/assets/fonts/',
 ) -> ImageFont.FreeTypeFont:
     try:
         return ImageFont.truetype(f'{directory}{font}', size)
@@ -43,9 +42,9 @@ def open_font(
 
 
 def merge_images(
-    images: Optional[list[Image.Image]] = None,
-    filename: Optional[str] = 'merged',
-    extension: Optional[str] = '.png'
+    images: list[Image.Image] | None = None,
+    filename: str | None = 'merged',
+    extension: str | None = '.png'
 ):
     """Merge images in cache folder."""
 

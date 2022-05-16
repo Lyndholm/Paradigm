@@ -1,5 +1,3 @@
-from typing import Optional
-
 from pydantic import Field
 
 from .base import FortBaseCosmetic
@@ -47,7 +45,7 @@ class FortEmoji(FortBaseCosmetic):
 
 
 class FortSpray(FortBaseCosmetic):
-    rarity: Optional[str] = Field(default='EFortRarity::Uncommon', alias='Rarity')
+    rarity: str | None = Field(default='EFortRarity::Uncommon', alias='Rarity')
     sorting_priority = 9
 
 
@@ -56,7 +54,7 @@ class FortMusicPack(FortBaseCosmetic):
 
 
 class FortLoadingScreen(FortBaseCosmetic):
-    rarity: Optional[str] = Field(default='EFortRarity::Uncommon', alias='Rarity')
+    rarity: str | None = Field(default='EFortRarity::Uncommon', alias='Rarity')
     sorting_priority = 8
 
 

@@ -1,5 +1,3 @@
-from typing import Optional
-
 from pydantic import BaseModel, Field
 
 
@@ -34,15 +32,15 @@ class ShortDescription(FortItemText):
 
 class FortBaseCosmetic(BaseModel):
     item_type: str = Field(alias='exportType')
-    name: Optional[DisplayName] = Field(alias='DisplayName')
-    description: Optional[Description] = Field(alias='Description')
-    short_description: Optional[ShortDescription] = Field(alias='ShortDescription')
-    rarity: Optional[str] = Field(default='EFortRarity::Common', alias='Rarity')
-    series: Optional[str] = Field(alias='Series')
-    fmodel_path: Optional[str]
-    gameplay_tags: Optional[list[str]] = Field(alias='GameplayTags', default=[])
-    preview_image: Optional[DisplayAssetPath] = Field(alias='LargePreviewImage')
-    display_asset: Optional[DisplayAssetPath] = Field(alias='DisplayAssetPath')
+    name: DisplayName | None = Field(alias='DisplayName')
+    description: Description | None = Field(alias='Description')
+    short_description: ShortDescription | None = Field(alias='ShortDescription')
+    rarity: str | None = Field(default='EFortRarity::Common', alias='Rarity')
+    series: str | None = Field(alias='Series')
+    fmodel_path: str | None
+    gameplay_tags: list[str] | None = Field(alias='GameplayTags', default=[])
+    preview_image: DisplayAssetPath | None = Field(alias='LargePreviewImage')
+    display_asset: DisplayAssetPath | None = Field(alias='DisplayAssetPath')
 
     @property
     def image(self):
