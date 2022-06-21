@@ -81,7 +81,7 @@ class BaseIcon:
         if text:
             text = text.text.upper()
         else:
-            text = 'null'
+            text = ''
 
         font = open_font(font=self.primary_font, size=text_size)
         text_width, text_height = font.getsize(text)
@@ -113,7 +113,7 @@ class BaseIcon:
         if text:
             text = text.text.upper()[:100] # draw the first 100 characters
         else:
-            text = 'null'
+            text = ''
         
         font = open_font(font=self.secondary_font, size=text_size)
         text_width, text_height = font.getsize(text)
